@@ -115,7 +115,7 @@ def generate_entry(fyle, icons):
 
 def provider_to_repo(provider):
     """docstring for provider_to_repo"""
-    return 'git@github.com:terraform-providers/terraform-provider-{}.git'.format(provider)  # noqa: E501
+    return 'https://github.com/terraform-providers/terraform-provider-{}.git'.format(provider)  # noqa: E501
 
 
 def main():
