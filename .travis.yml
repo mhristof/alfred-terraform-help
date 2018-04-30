@@ -1,0 +1,20 @@
+language: python
+python:
+  - 3.6
+
+install:
+  - pip install -r requirements.txt
+
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:duggan/bats'
+    packages:
+    - bats
+    - bc
+
+script:
+  - make test
+
+
+
