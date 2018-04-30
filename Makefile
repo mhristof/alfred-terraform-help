@@ -2,6 +2,8 @@
 #
 
 
+TESTS := $(wildcard tests/*.bats)
+
 terraform-help.alfredworkflow: info.plist tf-doc.py
 	zip -r terraform-help.alfredworkflow info.plist
 	zip -r terraform-help.alfredworkflow icon.png
@@ -9,6 +11,9 @@ terraform-help.alfredworkflow: info.plist tf-doc.py
 
 info.plist: info.plist.template
 	./generate.sh
+
+test:
+	bats $(TESTS)
 
 all:
 	@echo "Makefile needs your attention"

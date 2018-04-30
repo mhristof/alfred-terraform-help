@@ -23,7 +23,7 @@ def find_doc_files(folder):
 
 def file2url(fyle):
     return os.path.splitext(
-        re.sub('.*terraform-provider-(\w*).git/website/docs',
+        re.sub(r'.*terraform-provider-(\w*).git/website/docs',
                'https://www.terraform.io/docs/providers/\\1',
                fyle)
     )[0]
@@ -55,7 +55,7 @@ def extract_example(lines):
                 re.search('## Example with', line)):
             look_for_code_block = True
         if not found_code_block and (
-                look_for_code_block and re.search('^```\w*', line)):
+                look_for_code_block and re.search(r'^```\w*', line)):
             found_code_block = True
         if found_code_block:
             ret += [line]
@@ -115,8 +115,7 @@ def generate_entry(fyle, icons):
 
 def provider_to_repo(provider):
     """docstring for provider_to_repo"""
-    return 'git@github.com:terraform-providers/terraform-provider-{}.git'.format(
-        provider)
+    return 'git@github.com:terraform-providers/terraform-provider-{}.git'.format(provider)  # noqa: E501
 
 
 def main():
@@ -129,6 +128,10 @@ def main():
                         action='store_true',
                         default=False,
                         help='Update the repositories')
+
+    parser.add_argument('-p', '--providers',
+                        default='aws,github,terraform,kubernetes,azure',
+                        help='Providers, comma delimited')
 
     parser.add_argument('--version', action='version', version='0.1')
     parser.add_argument('-c', '--clear-cache',
@@ -155,18 +158,20 @@ def main():
         {
             'uid': 'clear-cache',
             'title': 'clear the cache',
-            'arg': "exec=$PYTHON3 ./{} --clear-cache".format(os.path.basename(__file__)),
+            'arg': "exec=$PYTHON3 ./{} --clear-cache".format(
+                os.path.basename(__file__)
+            ),
         },
         {
             'uid': 'update',
             'title': 'update the git repositories and also clear the cache',
-            'arg': 'exec=$PYTHON3 ./{} --clear-cache --update'.format(os.path.basename(__file__)),
+            'arg': 'exec=$PYTHON3 ./{} --clear-cache --update'.format(
+                os.path.basename(__file__)
+            ),
         },
     ]
 
-    providers = [
-        'aws', 'github', 'terraform', 'kubernetes', 'azure'
-    ]
+    providers = args.providers.split(',')
 
     try:
         items = load_cache(cache_path(), 'master')['items']
@@ -198,7 +203,7 @@ def wget(url, dest=None):
 def fetch_icons(cache):
     icons = {
         'web': 'https://rastamouse.me/images/terraform/icon.png',
-        'code': 'https://static.vmguru.com/wordpress/wp-content/uploads/2018/04/as_code.png',
+        'code': 'https://static.vmguru.com/wordpress/wp-content/uploads/2018/04/as_code.png',  # noqa: E501
     }
 
     for name, url in icons.items():
@@ -219,8 +224,14 @@ def load_cache(repo, rev):
 
 
 def cache_path():
-    base = os.path.expanduser('~/.cache/alfred/')
-    return os.path.join(base, os.path.basename(__file__))
+    base = os.getenv('ALFRED_CACHE')
+    if base is None:
+        base = os.path.expanduser('~/.cache/alfred/')
+    base = os.path.abspath(base)
+    cache = os.path.join(base, os.path.basename(__file__))
+    if not os.path.isdir(cache):
+        os.makedirs(cache)
+    return cache
 
 
 def generate_entries(repo, update_repos=True):
