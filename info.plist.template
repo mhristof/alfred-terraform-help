@@ -348,6 +348,11 @@
             <integer>70</integer>
         </dict>
     </dict>
+    <key>variables</key>
+	<dict>
+		<key>PYTHON3</key>
+		<string>/usr/local/opt/python/bin/python3</string>
+	</dict>
     <key>version</key>
     <string>$VERSION</string>
     <key>webaddress</key>
