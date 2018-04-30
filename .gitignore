@@ -1,0 +1,7 @@
+*.swp
+*.pyc
+.DS_Store
+*.plist
+	info.plist.template
+*.zip
+*.alfredworkflow
