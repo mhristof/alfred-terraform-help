@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>7785fa3512b841daacac577b4e9b7c42</string>
 	<key>connections</key>
 	<dict>
 		<key>0ADA218A-3F75-4814-9E9B-B2E0DF9ACBA2</key>
@@ -288,7 +288,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>${README}</string>
 	<key>uidata</key>
 	<dict>
 		<key>0ADA218A-3F75-4814-9E9B-B2E0DF9ACBA2</key>

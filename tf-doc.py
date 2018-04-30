@@ -130,7 +130,7 @@ def main():
                         default=False,
                         help='Update the repositories')
 
-    parser.add_argument('--version', action='version', version='1.1')
+    parser.add_argument('--version', action='version', version='0.1')
     parser.add_argument('-c', '--clear-cache',
                         action='store_true',
                         default=False,

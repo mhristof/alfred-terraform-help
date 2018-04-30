@@ -4,7 +4,8 @@ set -euo pipefail
 
 export CODE=$(cat tf-doc.py)
 export VERSION=$(./tf-doc.py --version)
+export README=$(cat README.md)
 
-envsubst '$CODE:$VERSION' < info.plist.template > info.plist
+envsubst '$CODE:$VERSION:$README' < info.plist.template > info.plist
 
 exit 0
