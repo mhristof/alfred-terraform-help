@@ -155,12 +155,12 @@ def main():
         {
             'uid': 'clear-cache',
             'title': 'clear the cache',
-            'arg': "exec={} --clear-cache".format(__file__),
+            'arg': "exec=$PYTHON3 ./{} --clear-cache".format(os.path.basename(__file__)),
         },
         {
             'uid': 'update',
             'title': 'update the git repositories and also clear the cache',
-            'arg': 'exec={} --clear-cache --update'.format(__file__),
+            'arg': 'exec=$PYTHON3 ./{} --clear-cache --update'.format(os.path.basename(__file__)),
         },
     ]
 
