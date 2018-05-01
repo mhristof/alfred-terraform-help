@@ -1,5 +1,6 @@
 alfred-terraform-help
 =====================
+[![Build Status](https://travis-ci.org/mhristof/alfred-terraform-help.svg?branch=master)](https://travis-ci.org/mhristof/alfred-terraform-help)
 
 Workflow to search the terraform documentation for modules
 
