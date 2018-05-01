@@ -1,8 +1,14 @@
-alfred-terraform-help
+alfred-terraform-help https://travis-ci.org/mhristof/alfred-terraform-help.svg?branch=master
 =====================
 
 Workflow to search the terraform documentation for modules
 
+
+## Commands
+
+* `clear the cache`: Clear the internal json generated cache
+* `update the git repositories and also clear the cache`: perform a `git pull` in the internal
+repositories and then clear the cache
 
 ## Environment Variables
 
