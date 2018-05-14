@@ -1,4 +1,4 @@
-alfred-terraform-help https://travis-ci.org/mhristof/alfred-terraform-help.svg?branch=master
+alfred-terraform-help
 =====================
 [![Build Status](https://travis-ci.org/mhristof/alfred-terraform-help.svg?branch=master)](https://travis-ci.org/mhristof/alfred-terraform-help)
 
