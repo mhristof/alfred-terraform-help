@@ -210,7 +210,7 @@
                 <key>runningsubtext</key>
                 <string>Calculatin infinity</string>
                 <key>script</key>
-                <string>$PYTHON3 ./tf-doc.py</string>
+                <string>$PYTHON3 ./tf-doc.py || pip3 install -r requrements.txt</string>
                 <key>scriptargtype</key>
                 <integer>1</integer>
                 <key>scriptfile</key>

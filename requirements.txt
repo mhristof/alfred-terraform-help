@@ -1,4 +1,3 @@
-pycodestyle
 requests>=2.14.2
 sh>=1.12.13
 pyaml>=17.12.1
