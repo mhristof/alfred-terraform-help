@@ -74,6 +74,11 @@ def filter_description(description):
         '^Creates a': '',
         '^Provides a ': '',
         '^Provides an': '',
+        'AWS Secrets Manager': 'ASM',
+        'Secrets Manager': 'ASM',
+        '^Retrieve information about a': 'get',
+        'including its': ',',
+        'information': 'info',
     }
 
     for key, val in replacements.items():
