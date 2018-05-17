@@ -103,7 +103,8 @@ def generate_entry(fyle, icons):
     ret['title'] = filter_description(header['description'])
     ret['match'] = (header['page_title'].replace('_', ' ')
                     + header['sidebar_current'].replace('-', ' ')
-                    + ret['title'])
+                    + ret['title']
+                    + ret['uid'])
 
     example = copy.deepcopy(ret)
     example['uid'] += '-example'
